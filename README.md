@@ -15,7 +15,7 @@ A platform to share and discuss camping grounds. All information uploaded and sh
 
 ## Live Demo
 
-To see the app in action, go to [https://yelpcamp--demo.herokuapp.com/](https://ycwhfm.herokuapp.com/)
+To see the app in action, go to [https://ycwhfm.herokuapp.com/](https://ycwhfm.herokuapp.com/)
 
 ## Features
 
