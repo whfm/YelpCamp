@@ -20,7 +20,7 @@ var indexRoutes = require("./routes/index");
 // seed the database
 // seedDB();
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://aewbroto:aewaew123@ds119171.mlab.com:19171/ycwhfm");
 
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: true }));
