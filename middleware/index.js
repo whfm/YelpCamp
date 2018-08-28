@@ -27,22 +27,20 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
 };
 
 middlewareObj.checkCommentOwnership = function(req, res, next){
-    if (req.isAuthenticated()){
-        Comment.findById(req.params.commentId, function(err, foundComment){
+    if(req.isAuthenticated()){ // if user is logged in
+        Comment.findById(req.params.comment_id, function(err, foundComment){
             if(err){
-                console.log(err);
-                req.flash('error', 'Sorry, that comment does not exist!');
-                res.redirect('/campgrounds');
-            } 
-            else if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
-                req.comment = foundComment;
-                next();
-            } 
-            else {
-                req.flash('error', 'You don\'t have permission to do that!');
-                res.redirect('/campgrounds/' + req.params.id);
+                res.redirect("back");
+            } else{
+                if(foundComment.author.id.equals(req.user._id)){ //does user owns the campground
+                    next();
+                } else {
+                    res.redirect("back");
+                }
             }
         });
+    } else {
+        res.redirect("back");
     }
 };
 
